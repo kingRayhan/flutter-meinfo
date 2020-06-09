@@ -4,14 +4,25 @@ class InfoBox extends StatelessWidget {
   IconData icon;
   String label;
 
-  InfoBox({this.icon, this.label});
+  InfoBox({@required this.icon, @required this.label});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       margin: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black.withAlpha(35),
+              blurRadius: 3,
+              offset: Offset(0, 3)),
+        ],
+        borderRadius: BorderRadius.all(
+          Radius.circular(5),
+        ),
+      ),
       child: Row(children: [
         Icon(
           this.icon,
